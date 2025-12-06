@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pilas</title>
+
+  <!-- ======== ESTILO COMIC ======== -->
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background: #fffae6;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #ff4d4d;
+      text-shadow: 3px 3px 0px black;
+      font-weight: bold;
+    }
+
+    .btn {
+      background: yellow;
+      border: 4px solid black;
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 4px 4px 0px black;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 6px 6px 0px black;
+    }
+
+    #resultado {
+      margin-top: 25px;
+      font-size: 24px;
+      background: #ffffff;
+      padding: 20px;
+      display: inline-block;
+      border: 4px solid black;
+      border-radius: 10px;
+      box-shadow: 4px 4px 0px black;
+      min-width: 200px;
+    }
+
+    .link-menu {
+      display: inline-block;
+      margin-top: 30px;
+      font-size: 22px;
+      background: #66ccff;
+      color: black;
+      padding: 10px 20px;
+      border: 4px solid black;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 4px 4px 0px black;
+    }
+
+    .link-menu:hover {
+      transform: scale(1.05);
+      box-shadow: 6px 6px 0px black;
+    }
+  </style>
+
+  <!-- ======== JavaScript ======== -->
+  <script>
+    let pila = [];
+
+    function pushElemento() {
+      let elemento = prompt("Ingresa un elemento para apilar:");
+      if (elemento) pila.push(elemento);
+      mostrarPila();
+    }
+
+    function popElemento() {
+      if (pila.length > 0) {
+        alert("Elemento desapilado: " + pila.pop());
+      } else {
+        alert("La pila está vacía.");
+      }
+      mostrarPila();
+    }
+
+    function mostrarPila() {
+      document.getElementById("resultado").innerHTML =
+        "Pila: [" + pila.join(", ") + "]";
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Ejemplo de Pila (Stack)</h1>
+
+  <button class="btn" onclick="pushElemento()">Apilar (Push)</button>
+  <button class="btn" onclick="popElemento()">Desapilar (Pop)</button>
+
+  <p id="resultado">Pila: []</p>
+
+  <a class="link-menu" href="menu.html">Volver al Menú</a>
+</body>
+</html>

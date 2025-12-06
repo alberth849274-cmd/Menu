@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tablas de Multiplicar</title>
+
+<style>
+  body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    background: #fff8b3;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #ff3d00;
+    text-shadow: 2px 2px #000;
+    font-size: 40px;
+  }
+
+  button {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 20px;
+    background: #00c3ff;
+    border: 4px solid #000;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #ff3d00;
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+  .tabla-cartoon {
+    background: #ffffff;
+    border: 5px solid #000;
+    border-radius: 15px;
+    width: 230px;
+    margin: 20px;
+    padding: 10px;
+    display: inline-block;
+    box-shadow: 6px 6px #000;
+  }
+
+  .tabla-cartoon h2 {
+    color: #ff0080;
+    text-shadow: 1px 1px #000;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+  }
+
+  li {
+    padding: 2px 0;
+  }
+
+  a {
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #0051ff;
+  }
+
+  a:hover {
+    color: #ff3d00;
+  }
+</style>
+
+<script>
+function generarTablas() {
+
+  let inicio = parseInt(prompt("¿Desde qué tabla deseas iniciar?"));
+  let fin = parseInt(prompt("¿En qué tabla deseas terminar?"));
+
+  // Validaciones
+  if (isNaN(inicio) || isNaN(fin) || inicio <= 0 || fin <= 0) {
+    alert("Ingresa números válidos mayores a 0.");
+    return;
+  }
+
+  if (inicio > fin) {
+    alert("La tabla inicial no puede ser mayor que la final.");
+    return;
+  }
+
+  let resultado = "";
+
+  // Generar tablas
+  for (let n = inicio; n <= fin; n++) {
+    resultado += `<div class='tabla-cartoon'><h2>Tabla del ${n}</h2><ul>`;
+    
+    for (let i = 1; i <= 10; i++) {
+      resultado += `<li>${n} × ${i} = ${n * i}</li>`;
+    }
+
+    resultado += "</ul></div>";
+  }
+
+  document.getElementById("tablas").innerHTML = resultado;
+}
+</script>
+
+</head>
+
+<body>
+  <h1>🎉 ¡Tablas de Multiplicar! 🎉</h1>
+  <button onclick="generarTablas()">Generar Tablas</button>
+
+  <div id="tablas"></div>
+
+  <a href="menu.html">⬅ Volver al Menú</a>
+</body>
+</html>
